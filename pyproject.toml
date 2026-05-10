@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-doc-system"
+version = "2.0.0"
+description = "智能代码文档生成与审查系统（支持 Claude AI 增强）"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["documentation", "code-analysis", "ai", "claude", "ast"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Quality Assurance",
+]
+# 零第三方依赖，全部使用标准库
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "black", "ruff"]
+
+[project.scripts]
+code-doc = "code_doc_system.core:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["code_doc_system*"]
